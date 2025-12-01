@@ -3,51 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuários</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #userList {
-            list-style-type: none;
-            padding: 0;
-        }
-        .userItem {
-            background-color: #f8f9fa;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #007bff;
-        }
-        .error {
-            color: #dc3545;
-            background-color: #f8d7da;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-    </style>
+    <title>Gerenciador de Usuários - API Consumer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Lista de Usuários</h1>
-    <button id="loadUsers">Carregar Usuários</button>
-    <div id="errorMessage" class="error" style="display: none;"></div>
-    <ul id="userList"></ul>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-users"></i>
+                <h1>Gerenciador de Usuários</h1>
+            </div>
+            <p class="subtitle">Consumindo dados da API JSONPlaceholder</p>
+        </header>
+
+        <main class="main-content">
+            <section class="controls">
+                <div class="button-group">
+                    <button id="loadUsers" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Carregar Usuários</span>
+                    </button>
+                    <button id="clearUsers" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i>
+                        <span>Limpar Lista</span>
+                    </button>
+                    <div class="stats">
+                        <span id="userCount">0 usuários</span>
+                        <span id="lastUpdate">Nuncar atualizado</span>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Buscar por nome ou email...">
+                    <select id="sortSelect">
+                        <option value="name-asc">Nome (A-Z)</option>
+                        <option value="name-desc">Nome (Z-A)</option>
+                        <option value="email-asc">Email (A-Z)</option>
+                        <option value="email-desc">Email (Z-A)</option>
+                    </select>
+                </div>
+            </section>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Carregando usuários da API...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="error-content">
+                    <h3>Erro ao carregar usuários</h3>
+                    <p id="errorText">Ocorreu um erro inesperado. Tente novamente mais tarde.</p>
+                    <button id="retryButton" class="btn btn-small">Tentar Novamente</button>
+                </div>
+            </div>
+
+            <section class="users-section">
+                <h2><i class="fas fa-list"></i> Lista de Usuários</h2>
+                <div class="users-container">
+                    <ul id="userList" class="user-list">
+                        <li class="empty-state">
+                            <i class="fas fa-user-slash"></i>
+                            <p>Nenhum usuário carregado ainda. Clique em "Carregar Usuários" para começar.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="api-info">
+                <h3><i class="fas fa-info-circle"></i> Informações da API</h3>
+                <div class="info-content">
+                    <p><strong>Endpoint:</strong> <code>https://jsonplaceholder.typicode.com/users</code></p>
+                    <p><strong>Método:</strong> GET</p>
+                    <p><strong>Status:</strong> <span id="apiStatus" class="status-indicator">Desconhecido</span></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Prova de Consumo de API &copy; 2024 - Desenvolvido por Rafaela com <i class="fas fa-heart"></i></p>
+            <p class="api-credit">Dados fornecidos por <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a></p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
