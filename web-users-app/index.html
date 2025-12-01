@@ -1,19 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #userList {
+            list-style-type: none;
+            padding: 0;
+        }
+        .userItem {
+            background-color: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Carregar Usuários</h1>
-
-    <button id="btnCarregar">Carregar Usuários</button>
-
-    <p id="erro" class="erro"></p>
-
-    <ul id="listaUsuarios"></ul>
+    <h1>Lista de Usuários</h1>
+    <button id="loadUsers">Carregar Usuários</button>
+    <div id="errorMessage" class="error" style="display: none;"></div>
+    <ul id="userList"></ul>
 
     <script src="script.js"></script>
 </body>
