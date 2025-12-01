@@ -1,1 +1,37 @@
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+background: #f2f2f2;
+}
 
+
+h1 {
+margin-bottom: 20px;
+}
+
+
+button {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+}
+
+
+.erro {
+color: red;
+font-weight: bold;
+margin-top: 15px;
+}
+
+
+#listaUsuarios {
+margin-top: 20px;
+background: white;
+padding: 20px;
+border-radius: 8px;
+}
+
+
+#listaUsuarios li {
+margin-bottom: 10px;
+}
