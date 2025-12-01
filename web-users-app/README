@@ -1,0 +1,44 @@
+Gerenciador de Usuários - API Consumer
+Uma aplicação web completa para listar usuários consumindo dados de API pública, com interface moderna e tratamento robusto de erros.
+
+Requisitos da Prova:
+
+Botão "Carregar Usuários" com atualização automática
+Lista dinâmica de usuários criada com createElement()
+Tratamento completo de erros com try...catch e fetch()
+Verificação de status HTTP com response.ok
+Conversão de dados JSON com .json()
+
+
+Recursos Extras:
+
+Filtro em tempo real por nome, email ou empresa
+Ordenação múltipla (nome A-Z/Z-A, email A-Z/Z-A)
+Persistência local (dados salvos por 1 hora)
+Design totalmente responsivo
+Modo offline com fallback para dados locais
+Verificação automática do status da API
+Interface moderna com animações suaves
+
+ Como Usar
+Clone o repositório:
+
+bash
+git clone https://github.com/RafaelaGurgel/Prova-Consumo-de-API-II.git
+Abra o arquivo index.html em qualquer navegador moderno
+
+Clique em "Carregar Usuários" para buscar dados da API
+
+Estrutura do Projeto
+Prova-Consumo-de-API-II/
+├── index.html          # Interface principal
+├── style.css           # Estilos completos
+├── script.js           # Lógica da aplicação
+└── README.md           # Documentação
+
+
+API: JSONPlaceholder
+Ícones: Font Awesome
+Fontes: Google Fonts
+Desenvolvido por Rafaela Gurgel para demonstração de consumo de API com JavaScript puro.
+
